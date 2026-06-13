@@ -1,0 +1,17 @@
+﻿@model EtkinlikPaneli.Models.Kullanici
+
+@{
+    ViewData["Title"] = "Profil";
+}
+
+<h2>Profil Bilgileri</h2>
+
+<div class="card">
+    <div class="card-body">
+        <p><strong>Ad Soyad:</strong> @Model.AdSoyad</p>
+        <p><strong>Kullanıcı Adı:</strong> @Model.KullaniciAdi</p>
+
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Ana Sayfa</a>
+        <a asp-controller="Account" asp-action="Logout" class="btn btn-danger">Çıkış Yap</a>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@model EtkinlikPaneli.Models.Kullanici
+
+@{
+    ViewData["Title"] = "Giriş Yap";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card mt-4">
+            <div class="card-body">
+                <h2 class="mb-4">Giriş Yap</h2>
+
+                <form asp-action="Login" method="post">
+                    <div class="mb-3">
+                        <label>Kullanıcı Adı</label>
+                        <input asp-for="KullaniciAdi" class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Şifre</label>
+                        <input asp-for="Sifre" type="password" class="form-control" />
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Giriş Yap</button>
+                    <a asp-action="Register" class="btn btn-outline-primary">Kayıt Ol</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

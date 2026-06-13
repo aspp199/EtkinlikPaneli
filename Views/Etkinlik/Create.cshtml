@@ -1,0 +1,36 @@
+﻿@model EtkinlikPaneli.Models.Etkinlik
+
+@{
+    ViewData["Title"] = "Etkinlik Ekle";
+}
+
+<h2>Etkinlik Ekle</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label>Etkinlik Adı</label>
+        <input asp-for="EtkinlikAdi" class="form-control" />
+        <span asp-validation-for="EtkinlikAdi" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Yer</label>
+        <input asp-for="Yer" class="form-control" />
+        <span asp-validation-for="Yer" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Tarih</label>
+        <input asp-for="Tarih" type="date" class="form-control" />
+        <span asp-validation-for="Tarih" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Açıklama</label>
+        <textarea asp-for="Aciklama" class="form-control"></textarea>
+        <span asp-validation-for="Aciklama" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a asp-action="Index" class="btn btn-secondary">Listeye Dön</a>
+</form>

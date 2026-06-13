@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+    var kullaniciAdi = Context.Session.GetString("KullaniciAdi");
+}
+
+<div class="mb-4">
+    <h1 class="page-title">Etkinlik Paneli</h1>
+    <p class="text-muted">Etkinlikleri oluştur, takip et ve katılım durumunu yönet.</p>
+</div>
+
+@if (!string.IsNullOrEmpty(kullaniciAdi))
+{
+    <div class="alert alert-success">
+        Hoş geldin, <strong>@kullaniciAdi</strong>. Sisteme başarıyla giriş yaptın.
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="dashboard-box bg-primary">
+                <h5>Toplam Etkinlik</h5>
+                <h2>@ViewBag.ToplamEtkinlik</h2>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="dashboard-box bg-success">
+                <h5>Katıldığım Etkinlik</h5>
+                <h2>@ViewBag.KatildigimEtkinlik</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h4>Hızlı İşlemler</h4>
+            <p class="text-muted">Etkinlik işlemlerine aşağıdaki butonlardan ulaşabilirsin.</p>
+
+            <a class="btn btn-primary" asp-controller="Etkinlik" asp-action="Index">Etkinlikleri Gör</a>
+            <a class="btn btn-success" asp-controller="Katilim" asp-action="KatildigimEtkinlikler">Katıldığım Etkinlikler</a>
+            <a class="btn btn-danger" asp-controller="Account" asp-action="Logout">Çıkış Yap</a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="card">
+        <div class="card-body text-center">
+            <h3>Etkinlik ve Katılım Yönetim Sistemine Hoş Geldiniz</h3>
+            <p class="text-muted">Devam etmek için giriş yapabilir veya yeni hesap oluşturabilirsin.</p>
+
+            <a class="btn btn-success" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+            <a class="btn btn-outline-primary" asp-controller="Account" asp-action="Register">Kayıt Ol</a>
+        </div>
+    </div>
+}

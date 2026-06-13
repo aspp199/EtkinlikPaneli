@@ -1,0 +1,40 @@
+﻿@model List<EtkinlikPaneli.Models.Katilim>
+
+@{
+    ViewData["Title"] = "Katıldığım Etkinlikler";
+}
+
+<h2>Katıldığım Etkinlikler</h2>
+@if (TempData["Mesaj"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Mesaj"]
+    </div>
+}
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Etkinlik Adı</th>
+            <th>Yer</th>
+            <th>Etkinlik Tarihi</th>
+            <th>Katılım Tarihi</th>
+            <th>İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var katilim in Model)
+        {
+            <tr>
+                <td>@katilim.etkinlik.EtkinlikAdi</td>
+                <td>@katilim.etkinlik.Yer</td>
+                <td>@katilim.etkinlik.Tarih.ToShortDateString()</td>
+                <td>@katilim.KatilimTarihi.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>
+                    <a asp-action="Iptal" asp-route-etkinlikId="@katilim.EtkinlikId" class="btn btn-danger btn-sm">Katılımı İptal Et</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Etkinlik" asp-action="Index" class="btn btn-secondary">Etkinliklere Dön</a>

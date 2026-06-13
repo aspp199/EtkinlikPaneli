@@ -1,0 +1,26 @@
+﻿@model EtkinlikPaneli.Models.Etkinlik
+
+@{
+    ViewData["Title"] = "Etkinlik Sil";
+}
+
+<h2>Etkinlik Sil</h2>
+
+<div class="alert alert-danger">
+    Bu etkinliği silmek istediğine emin misin?
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4>@Model.EtkinlikAdi</h4>
+        <p><strong>Yer:</strong> @Model.Yer</p>
+        <p><strong>Tarih:</strong> @Model.Tarih.ToShortDateString()</p>
+        <p><strong>Açıklama:</strong> @Model.Aciklama</p>
+
+        <form asp-action="DeleteConfirmed" method="post">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button type="submit" class="btn btn-danger">Evet, Sil</button>
+            <a asp-action="Index" class="btn btn-secondary">Vazgeç</a>
+        </form>
+    </div>
+</div>

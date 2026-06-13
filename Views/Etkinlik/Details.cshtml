@@ -1,0 +1,18 @@
+﻿@model EtkinlikPaneli.Models.Etkinlik
+
+@{
+    ViewData["Title"] = "Etkinlik Detay";
+}
+
+<h2>Etkinlik Detay</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4>@Model.EtkinlikAdi</h4>
+        <p><strong>Yer:</strong> @Model.Yer</p>
+        <p><strong>Tarih:</strong> @Model.Tarih.ToShortDateString()</p>
+        <p><strong>Açıklama:</strong> @Model.Aciklama</p>
+
+        <a asp-action="Index" class="btn btn-secondary">Listeye Dön</a>
+    </div>
+</div>
